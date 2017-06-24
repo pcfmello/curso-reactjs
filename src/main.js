@@ -27,7 +27,7 @@ let Title = React.createClass({
 })
 
 ReactDOM.render(
-    <Nav title="React! App" linkUrl="index.html" />,
+    <Nav title="React! App Learning" linkUrl="index.html" />,
     document.querySelector('#nav')
 );
 
