@@ -1,0 +1,26 @@
+{
+  "name": "curso-reactjs",
+  "version": "1.0.0",
+  "description": "Curso de aprendizado básico de ReactJS",
+  "main": "main.js",
+  "dependencies": {
+    "babel-preset-react": "^6.24.1"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.24.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel" : "babel --presets react src --watch --out-dir js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pcfmello/curso-reactjs.git"
+  },
+  "author": "Paulo Cesar Ferreira de Mello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pcfmello/curso-reactjs/issues"
+  },
+  "homepage": "https://github.com/pcfmello/curso-reactjs#readme"
+}
