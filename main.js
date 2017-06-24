@@ -1,11 +1,11 @@
 let Nav = React.createClass({
-    render: () => {
+    render: function() {
         return (
             <nav className="navbar navbar-inverse">
                 <div className="container">
                     <div className="navbar-header">
-                        <a href="#" className="navbar-brand">
-                            React!
+                        <a href={ this.props.linkUrl } className="navbar-brand">
+                            { this.props.title }
                         </a>
                     </div>
                 </div>
@@ -14,7 +14,24 @@ let Nav = React.createClass({
     }
 });
 
+let Title = React.createClass({
+    render: function () {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h1>{ this.props.title }</h1>
+                </div>
+            </div>
+        );
+    }
+})
+
 ReactDOM.render(
-    <Nav/>,
-    document.querySelector('#app')
+    <Nav title="React! App" linkUrl="index.html" />,
+    document.querySelector('#nav')
+);
+
+ReactDOM.render(
+    <Title title="Componente de título!" />,
+    document.querySelector('#title')
 );
