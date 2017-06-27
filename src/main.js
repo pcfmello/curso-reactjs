@@ -17,10 +17,8 @@ let Nav = React.createClass({
 let Title = React.createClass({
     render: function () {
         return (
-            <div className="container">
-                <div className="row">
-                    <h1>{ this.props.title }</h1>
-                </div>
+            <div className="row">
+                <h1>{ this.props.title }</h1>
             </div>
         );
     }
@@ -48,24 +46,30 @@ let Button = React.createClass({
         let title = this.estaClicado() ? this.props.textoAtivo : this.props.textoNaoAtivo;
 
         return (
-            <div className="container">
+            <div>
                 <button onClick={ this.alternarClick } className={ btnClass }>{ title }</button>
             </div>
         )
     }
 });
 
-ReactDOM.render(
-    <Nav title="React! App Learning" linkUrl="index.html" />,
-    document.querySelector('#nav')
-);
+let Page = React.createClass({
+    render: function() {
+        return (
+            <myElement>
+                <Nav title="React! App Learning" linkUrl="index.html" />
+                <div className="container">
+                    <Title title="Componente de título!" />
+                    <div className="row">
+                        <Button title="Meu botão" textoAtivo="Desligar" textoNaoAtivo="Ligar" />
+                    </div>
+                </div>
+            </myElement>
+        );
+    }
+});
 
 ReactDOM.render(
-    <Title title="Componente de título!" />,
-    document.querySelector('#title')
-);
-
-ReactDOM.render(
-    <Button title="Meu botão" textoAtivo="Desligar" textoNaoAtivo="Ligar" />,
-    document.querySelector('#button')
+    <Page />,
+    document.getElementById('page')
 );
