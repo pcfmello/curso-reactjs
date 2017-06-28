@@ -44,11 +44,32 @@ let Button = React.createClass({
     render: function() {
         let btnClass = this.estaClicado() ? 'btn btn-danger' : 'btn btn-success';
         let title = this.estaClicado() ? this.props.textoAtivo : this.props.textoNaoAtivo;
-
         return (
             <div>
                 <button onClick={ this.alternarClick } className={ btnClass }>{ title }</button>
             </div>
         )
     }
+});
+
+let Form = React.createClass({
+     render: function() {
+         return (
+             <form>
+                 <div className="form-group">
+                     <label htmlFor="name">Nome</label>
+                     <input type="text" id="name" className="form-control" placeholder="Digite o nome" />
+                 </div>
+                 <div className="form-group">
+                     <label htmlFor="email">E-mail</label>
+                     <input type="email" id="email" className="form-control" placeholder="Digite o e-mail" />
+                 </div>
+                 <div className="form-group">
+                     <label htmlFor="name">Mensagem</label>
+                     <textarea id="message" className="form-control" placeholder="Digite a mensagem"
+                            rows={3}></textarea>
+                 </div>
+             </form>
+         )
+     }
 });

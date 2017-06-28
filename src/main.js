@@ -6,8 +6,10 @@ let Page = React.createClass({
                 <div className="container">
                     <Title title="Componente de título!" />
                     <div className="row">
-                        <Button title="Meu botão" textoAtivo="Desligar" textoNaoAtivo="Ligar" />
+                        <Form />
+                        <Button title="Enviar" textoAtivo="Desligar" textoNaoAtivo="Ligar" />
                     </div>
+
                 </div>
             </myElement>
         );
