@@ -16,9 +16,13 @@ let Nav = React.createClass({
 
 let Title = React.createClass({
     render: function () {
+        let TitleStyle = {
+            color: '#777676',
+            fontSize: '35px'
+        };
         return (
             <div className="row">
-                <h1>{ this.props.title }</h1>
+                <h1 style={TitleStyle}>{ this.props.title }</h1>
             </div>
         );
     }
@@ -54,19 +58,25 @@ let Button = React.createClass({
 
 let Form = React.createClass({
      render: function() {
+         let InputStyle = {
+             padding: '30px',
+             fontSize: '20px',
+             color: '#a7a5a5'
+         };
+
          return (
              <form>
                  <div className="form-group">
                      <label htmlFor="name">Nome</label>
-                     <input type="text" id="name" className="form-control" placeholder="Digite o nome" />
+                     <input type="text" id="name" className="form-control" style={InputStyle} placeholder="Digite o nome" />
                  </div>
                  <div className="form-group">
                      <label htmlFor="email">E-mail</label>
-                     <input type="email" id="email" className="form-control" placeholder="Digite o e-mail" />
+                     <input type="email" id="email" className="form-control" style={InputStyle} placeholder="Digite o e-mail" />
                  </div>
                  <div className="form-group">
                      <label htmlFor="name">Mensagem</label>
-                     <textarea id="message" className="form-control" placeholder="Digite a mensagem"
+                     <textarea id="message" className="form-control" style={InputStyle} placeholder="Digite a mensagem"
                             rows={3}></textarea>
                  </div>
              </form>
