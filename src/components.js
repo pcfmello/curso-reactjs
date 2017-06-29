@@ -22,7 +22,7 @@ let Title = React.createClass({
         };
         return (
             <div className="row">
-                <h1 style={TitleStyle}>{ this.props.title }</h1>
+                <h1 style={TitleStyle}>{ this.props.children }</h1>
             </div>
         );
     }
@@ -47,7 +47,7 @@ let Button = React.createClass({
 
     render: function() {
         let btnClass = this.estaClicado() ? 'btn btn-danger' : 'btn btn-success';
-        let title = this.estaClicado() ? this.props.textoAtivo : this.props.textoNaoAtivo;
+        let title = this.estaClicado() ? this.props.textoAtivo : this.props.children;
         return (
             <div>
                 <button onClick={ this.alternarClick } className={ btnClass }>{ title }</button>

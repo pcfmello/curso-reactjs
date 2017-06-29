@@ -4,10 +4,12 @@ let Page = React.createClass({
             <myElement>
                 <Nav title="React! App Learning" linkUrl="index.html" />
                 <div className="container">
-                    <Title title="Componente de título!" />
+                    <Title>
+                        Componente de título!
+                    </Title>
                     <div className="row">
                         <Form />
-                        <Button title="Enviar" textoAtivo="Desligar" textoNaoAtivo="Ligar" />
+                        <Button textoAtivo="Carregando...">Enviar</Button>
                     </div>
 
                 </div>
