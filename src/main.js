@@ -33,6 +33,12 @@ let Page = React.createClass({
             ]
         }
     },
+    onAddSubmit: function(person) {
+        console.log(person);
+        let novaLista = this.state.listaDePessoas.concat([person]);
+        this.setState({ listaDePessoas: novaLista});
+    },
+
     render: function() {
         return (
             <myElement>
@@ -42,8 +48,7 @@ let Page = React.createClass({
                         Componente de título!
                     </Title>
                     <div className="row">
-                        <Form />
-                        <Button textoAtivo="Carregando...">Enviar</Button>
+                        <Form onAddSubmit={this.onAddSubmit} id={this.state.listaDePessoas.length + 1} />
                     </div>
                     <div className="row">
                         <List lista={ this.state.listaDePessoas } />

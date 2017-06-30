@@ -66,9 +66,28 @@ let Form = React.createClass({
             message: ''
         }
     },
-    handleNameChange: function(name) {
-        this.setState({ name: name.target.value });
-        console.log(this.state.name);
+    handleNameChange: function(e) {
+        this.setState({ name: e.target.value });
+    },
+    handleEmailChange: function(e) {
+        this.setState({ email: e.target.value });
+    },
+    handleSubjectChange: function(e) {
+        this.setState({ subject: e.target.value });
+    },
+    handleMessageChange: function(e) {
+        this.setState({ message: e.target.value });
+    },
+    handleSubmit: function(e) {
+        e.preventDefault();
+        this.props.onAddSubmit({
+            id: this.props.id,
+            name: this.state.name.trim(),
+            email: this.state.email.trim(),
+            subject: this.state.subject,
+            message: this.state.message.trim()
+        });
+
     },
     render: function() {
          let InputStyle = {
@@ -78,18 +97,18 @@ let Form = React.createClass({
          };
 
          return (
-             <form>
+             <form onSubmit={this.handleSubmit}>
                  <div className="form-group">
                      <label htmlFor="name">Nome</label>
                      <input type="text" className="form-control" onChange={this.handleNameChange} style={InputStyle} placeholder="Digite o nome" />
                  </div>
                  <div className="form-group">
                      <label htmlFor="email">E-mail</label>
-                     <input type="email" id="email" className="form-control" style={InputStyle} placeholder="Digite o e-mail" />
+                     <input type="email" className="form-control" onChange={this.handleEmailChange} style={InputStyle} placeholder="Digite o e-mail" />
                  </div>
                  <div className="form-group">
                      <label htmlFor="subject">Assunto</label>
-                     <select className="form-control" id="subject" defaultValue={this.state.subject}>
+                     <select className="form-control" onChange={this.handleSubjectChange} defaultValue={this.state.subject}>
                          <option value="jquery">JQuery</option>
                          <option value="react">React</option>
                          <option value="css">CSS</option>
@@ -97,9 +116,10 @@ let Form = React.createClass({
                  </div>
                  <div className="form-group">
                      <label htmlFor="message">Mensagem</label>
-                     <textarea id="message" className="form-control" style={InputStyle} placeholder="Digite a mensagem"
+                     <textarea onChange={this.handleMessageChange} className="form-control" style={InputStyle} placeholder="Digite a mensagem"
                             rows={3}></textarea>
                  </div>
+                 <Button textoAtivo="Carregando...">Enviar</Button>
              </form>
          )
      }
