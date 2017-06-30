@@ -57,7 +57,20 @@ let Button = React.createClass({
 });
 
 let Form = React.createClass({
-     render: function() {
+
+    getInitialState: function() {
+        return {
+            name: '',
+            email: '',
+            subject: 'react',
+            message: ''
+        }
+    },
+    handleNameChange: function(name) {
+        this.setState({ name: name.target.value });
+        console.log(this.state.name);
+    },
+    render: function() {
          let InputStyle = {
              padding: '30px',
              fontSize: '20px',
@@ -68,15 +81,15 @@ let Form = React.createClass({
              <form>
                  <div className="form-group">
                      <label htmlFor="name">Nome</label>
-                     <input type="text" id="name" className="form-control" style={InputStyle} placeholder="Digite o nome" />
+                     <input type="text" className="form-control" onChange={this.handleNameChange} style={InputStyle} placeholder="Digite o nome" />
                  </div>
                  <div className="form-group">
                      <label htmlFor="email">E-mail</label>
                      <input type="email" id="email" className="form-control" style={InputStyle} placeholder="Digite o e-mail" />
                  </div>
                  <div className="form-group">
-                     <label htmlFor="subject">Mensagem</label>
-                     <select className="form-control" id="subject" defaultValue={'react'}>
+                     <label htmlFor="subject">Assunto</label>
+                     <select className="form-control" id="subject" defaultValue={this.state.subject}>
                          <option value="jquery">JQuery</option>
                          <option value="react">React</option>
                          <option value="css">CSS</option>
