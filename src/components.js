@@ -91,3 +91,50 @@ let Form = React.createClass({
          )
      }
 });
+
+let Pessoas = React.createClass({
+    render: function() {
+        return(
+            <tr>
+                <td scope="row">{ this.props.idNumber }</td>
+                <td>{ this.props.name }</td>
+                <td>{ this.props.email }</td>
+                <td>{ this.props.subject }</td>
+                <td>{ this.props.children }</td>
+            </tr>
+        );
+    }
+});
+
+let List = React.createClass({
+     render: function() {
+         let ListStyle = {
+             marginTop: '50px'
+         };
+
+         let listaDePessoas = this.props.lista.map(function(pessoa) {
+             return (
+                 <Pessoas idNumber={pessoa.id} name={pessoa.name} email={pessoa.email} subject={pessoa.subject}>
+                     {pessoa.message}
+                 </Pessoas>
+             );
+         });
+
+         return (
+            <table className="table table-striped" style={ListStyle}>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOME</th>
+                        <th>E-MAIL</th>
+                        <th>ASSUNTO</th>
+                        <th>MENSAGEM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {listaDePessoas}
+                </tbody>
+            </table>
+         );
+     }
+});
