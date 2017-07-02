@@ -7,11 +7,11 @@
     "babel-preset-react": "^6.24.1"
   },
   "devDependencies": {
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "http-server": "^0.10.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "babel" : "babel --presets react src --watch --out-dir js"
+    "babel": "babel --presets react src --watch --out-dir js"
   },
   "repository": {
     "type": "git",
